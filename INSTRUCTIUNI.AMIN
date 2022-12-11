@@ -1,0 +1,59 @@
+INSTALEZI three three-fiber three-drei
+folosesti 
+npm install three @react-spring/three ------------------
+npm install @react-three/drei
+npm install react-three-fiber
+
+^^^ mentiuni mai importante nu mai rezist
+
+!!!!!!!!!! ti-am arhivat modelul cu glb in public ||| dezarhiveaza si lasa acolo loki.glb
+
+LA THREE, DACA FOLOSESTI COMANDA DE SUS POTI DA IMPORT CU || IMPORT MMDJ FROM 'THREE' ||
+DACA INSTALEZI THREE CU COMANDA NPM INSTALL THREE TREBUIE SA DAI IMPORT CU || IMPORT * AS THREE FROM 'THREE' ||
+
+PENTRU A PUTEA SA FACI CONVERT LA FISIERELE GLB/GLTF CU MODELUL 3D INSTALEZI SI gltfjsx
+
+cand faci convert folosesti comanda npx gltfjsx fisier.glb si pui fisierul glb in public iar rezultatul.js il bagi in folderul cu componente
+.js este folosit in componente
+
+probabil stii dar in fisierele .hdr sunt backgrounduri circulare pentru scene, basicly le folosesc sa luminez robotul, alea contin si imagine
+si datele despre luminare || cu becuri de baza nu se lumineaza ok
+
+!!!!vezi ca fiecare robot adauga vreo 150-200mb in memorie deci sa elimini componentele cand alt robot este afisat
+
+IN COMPONENTA.JSX
+In <Canvas> este scena care se randeaza, practic lumea cu obiectele
+
+<Stats> doar imi da casuta de sus cu cat de multa memorie se foloseste merge scoasa
+
+<OrbitControls> este din DREI. Este o functie kinda care imi implementeaza rotatia automata a robotului si miscarea camerei din mouse
+
+<Suspense> e practic fail safe ul. Se asigura ca nu da crash totul daca componentele nu au fost randate inca
+ practic permite sa se astepte randarea, un fel de async render
+ FALLBACK este folosit pentru a spune ce se incarca daca componenta nu s-a incarcat inca
+ la fallback ori pui null pentru nimic ori alta forma geometrie sau convert
+
+<ambientLight> ofera lumina, robotul foloseste lumina de la HDRI, dar cercul folosit pentru loading screen foloseste ambientLight
+
+<Environment> componenta ce insereaza fundalul HDRI
+ nu am dat import la fundalurile descarcate, am folosit un preset ca merge la fel de bine
+ daca pui background={true} iti afiseaza si imaginea de bg, nu doar lumina care vine de la bg
+ daca vrei sa folosesti HDRI descarcat folosesti --- file='./fiser.HDR' ----
+
+IN GEMETRIES ai cateva obiecte|forme plus robotul
+Cube.jsx nu ai nevoie
+
+Sfera.jsx folosit pentru loading
+    const textureMap incarca o textura in cu ajutorul unui loader si fisier
+    <Sphere> forma teoretica de Sfera
+        <MeshDistortMaterial> fata ca suprafata cercului sa se distorsioneze precum un lichid
+    <meshStandardMaterial> aplica textura pe cerc, NUSH DACA MERGE TEXTURA PE SFERA DAR VEZI IN CUBE.JSX CUM SE PUNE
+
+Loki.jsx fisier generat de acea librarie
+    Am chimbat numele functiei la cum trebuie 
+    am setat din al doilea <group> date referitoare la pozitia in spatiu si rotatie
+    ^in cazul in care robotul este mai jos de camera sau ceva
+    ^also scale fiindca robotul e cam mic
+
+!!!!INCERC SA CAUT CUM SA OBTIN UN SINGUR MESH DIN GLB ca poate ocupa mai putin
+

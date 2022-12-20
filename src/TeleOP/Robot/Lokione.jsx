@@ -58,7 +58,7 @@ export default function Lokione(props) {
 
   useFrame((state) => {
     // return;
-    if (true) {
+    if (false) {
 
       let position = new Vector3(0, 0, 0);
       position.setFromMatrixPosition(chassisBody.current.matrixWorld);

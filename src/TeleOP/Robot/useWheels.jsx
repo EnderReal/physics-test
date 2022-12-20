@@ -8,12 +8,12 @@ export const useWheels = (width, height, front, radius) => {
     radius,
     directionLocal: [0, -1, 0],
     axleLocal: [1, 0, 0],
-    suspensionStiffness: 300,
+    suspensionStiffness: 200,
     suspensionRestLength: 0.1,
     frictionSlip: 5,
     dampingRelaxation: 2.3,
     dampingCompression: 4.4,
-    maxSuspensionForce: 100000,
+    maxSuspensionForce: 10000,
     rollInfluence: 0.01,
     maxSuspensionTravel: 0.1,
     customSlidingRotationalSpeed: -30,
@@ -23,29 +23,29 @@ export const useWheels = (width, height, front, radius) => {
   const wheelInfos = [
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [-width * 0.6, -height * 0.3, front],
+      chassisConnectionPointLocal: [-width * 0.6, height * .0 , front], //height 3
       isFrontWheel: true,
     },
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [width * 0.6, -height * 0.3, front],
+      chassisConnectionPointLocal: [width * 0.6, height * .0, front],
       isFrontWheel: true,
     },
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [-width * 0.6, -height * 0.3, -front],
+      chassisConnectionPointLocal: [-width * 0.6, height * .0, -front],
       isFrontWheel: false,
     },
     {
       ...wheelInfo,
-      chassisConnectionPointLocal: [width * 0.6, -height * 0.3, -front],
+      chassisConnectionPointLocal: [width * 0.6, height * .0, -front],
       isFrontWheel: false,
     },
   ];
 
   const propsFunc = () => ({
     collisionFilterGroup: 0,
-    mass: 1,
+    mass: 0.01,
     shapes: [
       {
         args: [wheelInfo.radius, wheelInfo.radius, 0.015, 16],
@@ -53,7 +53,7 @@ export const useWheels = (width, height, front, radius) => {
         type: "Cylinder",
       },
     ],
-    type: "Kinematic",
+    type: 'Kinematic',
   });
 
   useCompoundBody(propsFunc, wheels[0]);

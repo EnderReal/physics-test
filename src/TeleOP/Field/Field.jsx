@@ -27,53 +27,58 @@ function Field() {
 
     return (
         <Suspense fallback={null}>
-            <Cone position={[3 * 3 / 4, 1, 3 * 3 / 4]} />
-            <Cone position={[-3 * 3 / 4, 1, 3 * 3 / 4]} />
+            {/* <Cone position={[3 * 3 / 4, .3, 3 * 3 / 4]} />
+            <Cone position={[-3 * 3 / 4, .3, 3 * 3 / 4]} /> */}
 
-            <Cone position={[3 * 3 / 4, 1, -3 * 3 / 4]} />
-            <Cone position={[-3 * 3 / 4, 1, -3 * 3 / 4]} />
+            {/* <Cone position={[3 * 3 / 4, .3, -3 * 3 / 4]} />
+            <Cone position={[-3 * 3 / 4, .3, -3 * 3 / 4]} /> */}
+
+            <Cone position={[30 - 15 / 2, 2, 30 - 15 / 2]} />
+            <Cone position={[30 - 15 / 2, 2, -(30 - 15 / 2)]} />
+            <Cone position={[-(30 - 15 / 2), 2, 30 - 15 / 2]} />
+            <Cone position={[-(30 - 15 / 2), 2, -(30 - 15 / 2)]} />
 
             <Ground position={[0, 0, 0]} />
-            <Ground position={[3, 0, 0]} />
-            <Ground position={[-3, 0, 0]} />
-            <Ground position={[0, 0, 3]} />
-            <Ground position={[0, 0, -3]} />
-            <Ground position={[3, 0, 3]} />
-            <Ground position={[3, 0, -3]} />
-            <Ground position={[-3, 0, 3]} />
-            <Ground position={[-3, 0, -3]} />
+            <Ground position={[30, 0, 0]} />
+            <Ground position={[-30, 0, 0]} />
+            <Ground position={[0, 0, 30]} />
+            <Ground position={[0, 0, -30]} />
+            <Ground position={[30, 0, 30]} />
+            <Ground position={[30, 0, -30]} />
+            <Ground position={[-30, 0, 30]} />
+            <Ground position={[-30, 0, -30]} />
 
-            <Junction height={2} position={[1.48, 0, 0]} planeRef={ref} />
-            <Junction height={2} position={[-1.48, 0, 0]} planeRef={ref} />
-            <Junction height={2} position={[0, 0, 1.48]} planeRef={ref} />
-            <Junction height={2} position={[0, 0, -1.48]} planeRef={ref} />
+            <Junction height={30} position={[15, 0, 0]} planeRef={ref} />
+            <Junction height={30} position={[-15, 0, 0]} planeRef={ref} />
+            <Junction height={30} position={[0, 0, 15]} planeRef={ref} />
+            <Junction height={30} position={[0, 0, -15]} planeRef={ref} />
 
-            <Junction height={1.2} position={[1.48, 0, 1.48]} planeRef={ref} />
-            <Junction height={1.2} position={[1.48, 0, -1.48]} planeRef={ref} />
-            <Junction height={1.2} position={[-1.48, 0, 1.48]} planeRef={ref} />
-            <Junction height={1.2} position={[-1.48, 0, -1.48]} planeRef={ref} />
+            <Junction height={20} position={[15, 0, 15]} planeRef={ref} />
+            <Junction height={20} position={[15, 0, -15]} planeRef={ref} />
+            <Junction height={20} position={[-15, 0, 15]} planeRef={ref} />
+            <Junction height={20} position={[-15, 0, -15]} planeRef={ref} />
 
-            <Junction height={.8} position={[-1.48 * 2, 0, 1.48]} planeRef={ref} />
-            <Junction height={.8} position={[-1.48, 0, 1.48 * 2]} planeRef={ref} />
-            <Junction height={.8} position={[1.48 * 2, 0, 1.48]} planeRef={ref} />
-            <Junction height={.8} position={[1.48, 0, 1.48 * 2]} planeRef={ref} />
+            <Junction height={10} position={[-15 * 2, 0, 15]} planeRef={ref} />
+            <Junction height={10} position={[-15, 0, 15 * 2]} planeRef={ref} />
+            <Junction height={10} position={[15 * 2, 0, 15]} planeRef={ref} />
+            <Junction height={10} position={[15, 0, 15 * 2]} planeRef={ref} />
 
-            <Junction height={.8} position={[1.48 * 2, 0, -1.48]} planeRef={ref} />
-            <Junction height={.8} position={[1.48, 0, -1.48 * 2]} planeRef={ref} />
-            <Junction height={.8} position={[-1.48 * 2, 0, -1.48]} planeRef={ref} />
-            <Junction height={.8} position={[-1.48, 0, -1.48 * 2]} planeRef={ref} />
+            <Junction height={10} position={[15 * 2, 0, -15]} planeRef={ref} />
+            <Junction height={10} position={[15, 0, -15 * 2]} planeRef={ref} />
+            <Junction height={10} position={[-15 * 2, 0, -15]} planeRef={ref} />
+            <Junction height={10} position={[-15, 0, -15 * 2]} planeRef={ref} />
 
-            <mesh rotation={[-Math.PI / 2, 0, 0]}>
-                <planeGeometry attach="geometry" args={[9, 9]} />
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0.2, 0, 0.2]}>
+                <planeGeometry attach="geometry" args={[90, 90]} />
                 {/* 0xf57af5 */}
                 {/* <meshPhongMaterial attach={"material"} color={0x000000} /> */}
                 <meshBasicMaterial attach={"material"} map={textureMap} />
             </mesh>
 
-            <PereteBox position={[4.5, .25, 0]} scale={[0.1, .5, 9.1]} />
-            <PereteBox position={[-4.5, .25, 0]} scale={[0.1, .5, 9.1]} />
-            <PereteBox position={[0, .25, 4.5]} scale={[9.1, .5, .1]} />
-            <PereteBox position={[0, .25, -4.5]} scale={[9.1, .5, .1]} />
+            <PereteBox position={[45, 3.8, 0]} scale={[1, 7.6, 91]} />
+            <PereteBox position={[-45, 3.8, 0]} scale={[1, 7.6, 91]} />
+            <PereteBox position={[0, 3.8, 45]} scale={[91, 7.6, 1]} />
+            <PereteBox position={[0, 3.8, -45]} scale={[91, 7.6, 1]} />
         </Suspense>
     );
 }

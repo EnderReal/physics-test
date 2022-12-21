@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 
 export const useControls = (vehicleAPI, chassisAPI) => {
-    const [viteza, setViteza] = useState(100);
+    const [viteza, setViteza] = useState(200);
     const [breke, setBreke] = useState(60)
     let [controls, setControls] = useState({});
 
@@ -69,15 +69,15 @@ export const useControls = (vehicleAPI, chassisAPI) => {
         }
 
         if (controls.a) {
-            vehicleAPI.setSteeringValue(0.5, 2);
-            vehicleAPI.setSteeringValue(0.5, 3);
-            vehicleAPI.setSteeringValue(-0.4, 0);
-            vehicleAPI.setSteeringValue(-0.4, 1);
+            vehicleAPI.setSteeringValue(0.7, 2);
+            vehicleAPI.setSteeringValue(0.7, 3);
+            vehicleAPI.setSteeringValue(-0.5, 0);
+            vehicleAPI.setSteeringValue(-0.5, 1);
         } else if (controls.d) {
-            vehicleAPI.setSteeringValue(-0.5, 2);
-            vehicleAPI.setSteeringValue(-0.5, 3);
-            vehicleAPI.setSteeringValue(0.4, 0);
-            vehicleAPI.setSteeringValue(0.4, 1);
+            vehicleAPI.setSteeringValue(-0.7, 2);
+            vehicleAPI.setSteeringValue(-0.7, 3);
+            vehicleAPI.setSteeringValue(0.5, 0);
+            vehicleAPI.setSteeringValue(0.5, 1);
         } else {
             for (let i = 0; i < 4; i++) {
                 vehicleAPI.setSteeringValue(0, i);
@@ -85,7 +85,7 @@ export const useControls = (vehicleAPI, chassisAPI) => {
         }
 
         if (controls.r) {
-            chassisAPI.position.set(0, 0.5, 0);
+            chassisAPI.position.set(7, 4, 23);
             chassisAPI.velocity.set(0, 0, 0);
             chassisAPI.angularVelocity.set(0, 0, 0);
             chassisAPI.rotation.set(0, 0, 0);

@@ -23,7 +23,7 @@ function Scene(thirdPerson) {
             {
                 <OrbitControls target={[0, -3.5, -0.5]} zoomSpeed={0.5} />
             }
-            <gridHelper args={[100, 100]} />
+            {/* <gridHelper args={[100, 100]} /> */}
             {/* <OrbitControls target={[0, 0.15, 0]} zoomSpeed={.7}/> */}
         </Suspense>
     );

@@ -27,11 +27,25 @@ function Field() {
 
     return (
         <Suspense fallback={null}>
-            <Cone position={[3 * 3 / 4, 1, 3 * 3 / 4]} />
-            <Cone position={[-3 * 3 / 4, 1, 3 * 3 / 4]} />
+            {/* AICI STACK BLANA DE CONURI TOT CODUL ESTE DEJA PREA TARZIU VREAU SA MOR NU STIU DE CE FAC ASTA
+            DAR STIU CA ESTE O ALEGERE PROASTA SALVAT-MA PANA NU
+            FAC CEVA CE VOI REGRETA PENTRU TOT RESTUL
+            DEJA REGRET DAR NU AM ALTE CUVINTE */}
 
-            <Cone position={[3 * 3 / 4, 1, -3 * 3 / 4]} />
-            <Cone position={[-3 * 3 / 4, 1, -3 * 3 / 4]} />
+            <group>
+                {/* STACK BLANA DE CONURI THO */}
+                <Cone position={[-7.5, 2, 0]} />
+                <Cone position={[-7.5, 2, 3]} />
+                <Cone position={[-7.5, 2, -3]} />
+                <Cone position={[-7.5, 5, -1.5]} />
+                <Cone position={[-7.5, 5, 1.5]} />
+                <Cone position={[-7.5, 8.1, 0]} />
+            </group>
+
+            <Cone position={[30 - 15 / 2, 2, 30 - 15 / 2]} />
+            <Cone position={[30 - 15 / 2, 2, -(30 - 15 / 2)]} />
+            <Cone position={[-(30 - 15 / 2), 2, 30 - 15 / 2]} />
+            <Cone position={[-(30 - 15 / 2), 2, -(30 - 15 / 2)]} />
 
             <Ground position={[0, 0, 0]} />
             <Ground position={[3, 0, 0]} />

@@ -34,13 +34,18 @@ function Field() {
 
             <group>
                 {/* STACK BLANA DE CONURI THO */}
-                <Cone position={[-7.5, 2, 0]} />
+                {/* <Cone position={[-7.5, 2, 0]} />
                 <Cone position={[-7.5, 2, 3]} />
-                <Cone position={[-7.5, 2, -3]} />
-                <Cone position={[-7.5, 5, -1.5]} />
-                <Cone position={[-7.5, 5, 1.5]} />
-                <Cone position={[-7.5, 8.1, 0]} />
+                <Cone position={[-7.5, 2, -3]} /> */}
+                <Cone position={[-7.5, 2, -1.5]} />
+                <Cone position={[-7.5, 2, 1.5]} />
+                <Cone position={[-7.5, 5.1, 0]} />
             </group>
+
+            {/* <group >
+                <Cone position={[-2 + 7.5, 2, 0]} />
+                <Cone position={[2 + 7.5, 2, 0]} />
+             </group> */}
 
             <Cone position={[30 - 15 / 2, 2, 30 - 15 / 2]} />
             <Cone position={[30 - 15 / 2, 2, -(30 - 15 / 2)]} />

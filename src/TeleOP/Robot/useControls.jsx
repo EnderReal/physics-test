@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 
 export const useControls = (vehicleAPI, chassisAPI) => {
-    const [viteza, setViteza] = useState(400);
-    const [turnViteza, setTurnViteza] = useState(550);
+    const [viteza, setViteza] = useState(600);
+    const [turnViteza, setTurnViteza] = useState(680);
     const [breke, setBreke] = useState(20)
 
-    const multi = 1.7;
+    const multi = 1.8;
 
     let [controls, setControls] = useState({});
 

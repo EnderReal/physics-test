@@ -84,12 +84,13 @@ export default function Lokione(props) {
       quaternion.setFromRotationMatrix(chassisBody.current.matrixWorld);
 
       let wDir = new Vector3(0, 0, 10);
+      // let wDir = new Quaternion(0, 0, 0, 0);
       wDir.applyQuaternion(quaternion);
       wDir.normalize();
 
       let cameraPosition = position.clone().add(wDir.clone().multiplyScalar(10).add(new Vector3(0, 40, 0)));
 
-      wDir.add(new Vector3(0, 0.2, 0));
+      // wDir.add(new Vector3(0, 0.2, 0));
       state.camera.position.copy(cameraPosition);
       state.camera.lookAt(position);
     }
@@ -98,11 +99,11 @@ export default function Lokione(props) {
   return (
     <Suspense callback={null}>
       <group {...props} dispose={null} ref={vehicle} name="vehicle">
-        {/* <group ref={chassisBody}>
+        <group ref={chassisBody}>
           <mesh position={[0, 0, 0]}>
             <boxGeometry args={[10, 9, 10]} />
-            <meshPhongMaterial attach={"material"} color="#FFFF00" transparent opacity={0.6} />
-          </mesh> */}
+            <meshPhongMaterial attach={"material"} color="#FFFF0000" transparent opacity={0} />
+          </mesh>
           <WheelDebug wheelRef={wheels[0]} wheelRadius={wheelRadius} />
           <WheelDebug wheelRef={wheels[1]} wheelRadius={wheelRadius} />
           <WheelDebug wheelRef={wheels[2]} wheelRadius={wheelRadius} />
@@ -150,7 +151,7 @@ export default function Lokione(props) {
             </group>
           </group>
         </group>
-      {/* </group> */}
+      </group>
     </Suspense>
   )
 }

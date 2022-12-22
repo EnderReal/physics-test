@@ -29,6 +29,15 @@ export default function Cone({ position, props }) {
 
   }, []);
 
+  useEffect(() => {
+    setTimeout(() => {
+      coneAPICylinder.position.set(position[0], position[1], position[2]);
+      coneAPICylinder.velocity.set(0, 0, 0);
+      coneAPICylinder.angularVelocity.set(0, 0, 0);
+      coneAPICylinder.rotation.set(0, 0, 0);
+    }, 100);
+  }, []);
+
   const [coneBody, coneAPI] = useBox(
     () => ({
       args: [0.23, .5, 0.23],

@@ -12,17 +12,17 @@ export default function Lokione(props) {
 
   const { nodes, materials } = useGLTF('/loki1.glb');
 
-  const position = [7, 2, 23];
-  const width = 10;
+  const position = [7, 7, 23];
+  const width = 9;
   const height = 9; //.84
-  const front = 10;
-  const wheelRadius = 10;
+  const front = 5.2;
+  const wheelRadius = 1.1;
 
   const chassisBodyArgs = [width, height, front * 2];
   const [chassisBody, chassisAPI] = useBox(
     () => ({
       args: chassisBodyArgs,
-      mass: 200,
+      mass: 150,
       position
     }),
     useRef(null)
@@ -58,7 +58,7 @@ export default function Lokione(props) {
   // });
 
   useFrame((state) => {
-    return;
+    // return;
     if (false) {
 
       let position = new Vector3(0, 0, 0);
@@ -83,11 +83,11 @@ export default function Lokione(props) {
       let quaternion = new Quaternion(0, 0, 0, 0);
       quaternion.setFromRotationMatrix(chassisBody.current.matrixWorld);
 
-      let wDir = new Vector3(0, 0, 1);
+      let wDir = new Vector3(0, 0, 10);
       wDir.applyQuaternion(quaternion);
       wDir.normalize();
 
-      let cameraPosition = position.clone().add(wDir.clone().multiplyScalar(1).add(new Vector3(0, 4, 0)));
+      let cameraPosition = position.clone().add(wDir.clone().multiplyScalar(10).add(new Vector3(0, 40, 0)));
 
       wDir.add(new Vector3(0, 0.2, 0));
       state.camera.position.copy(cameraPosition);
@@ -98,17 +98,17 @@ export default function Lokione(props) {
   return (
     <Suspense callback={null}>
       <group {...props} dispose={null} ref={vehicle} name="vehicle">
-        <group ref={chassisBody}>
+        {/* <group ref={chassisBody}>
           <mesh position={[0, 0, 0]}>
             <boxGeometry args={[10, 9, 10]} />
             <meshPhongMaterial attach={"material"} color="#FFFF00" transparent opacity={0.6} />
-          </mesh>
+          </mesh> */}
           <WheelDebug wheelRef={wheels[0]} wheelRadius={wheelRadius} />
           <WheelDebug wheelRef={wheels[1]} wheelRadius={wheelRadius} />
           <WheelDebug wheelRef={wheels[2]} wheelRadius={wheelRadius} />
           <WheelDebug wheelRef={wheels[3]} wheelRadius={wheelRadius} />
-          <group scale={[0.24, 0.26, 0.24]} name="chassisBody">
-            <group rotation={[Math.PI / 2, 0, 3 * Math.PI / 2]} position={[0, -6, 0]}>
+          <group scale={[0.24, 0.26, 0.24]} ref={chassisBody} name="chassisBody">
+            <group rotation={[Math.PI / 2, 0, 3 * Math.PI / 2]} position={[0, -8, 0]}>
               <mesh geometry={nodes.Body1298.geometry} material={materials['Plastic - Glossy (Black)']} />
               <mesh geometry={nodes.Body1298_1.geometry} material={materials['Aluminum - Bead Blasted']} />
               <mesh geometry={nodes.Body1298_2.geometry} material={materials['Plastic - Glossy (Green).001']} />
@@ -150,7 +150,7 @@ export default function Lokione(props) {
             </group>
           </group>
         </group>
-      </group>
+      {/* </group> */}
     </Suspense>
   )
 }

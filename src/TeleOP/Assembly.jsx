@@ -8,7 +8,7 @@ function Assembly() {
         <Canvas className="canvas">
             <Physics
                 broadphase={'SAP'}
-                gravity={[0, -9.8, 0]}
+                gravity={[0, -40, 0]}
             >
                 <Scena />
             </Physics>

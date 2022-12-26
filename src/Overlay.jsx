@@ -5,11 +5,15 @@ function Overlay() {
 
 
     return (
-        <div class="controls">
-            W A S D pentru a te misca.<br />
-            {/* press k to swap camera<br /> */}
-            Teren stricat sau robot ce se misca ciudat?<br />
-            Apasa R pentru a reseta.
+        <div className="wrapper">
+            <div class="controls">
+                <div>Folosește W A S D pentru a te mișca</div>
+                <div>Dacă terenul sau robotul functionează ciudat</div>
+                <div>Apasă R pentru a reseta fiecare componentă</div>
+                {/* press k to swap camera<br /> */}
+                {/* Teren stricat sau robot ce se misca ciudat?<br />
+            Apasa R pentru a reseta. */}
+            </div>
         </div>
     );
 

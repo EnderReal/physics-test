@@ -18,7 +18,7 @@ function App() {
       <Overlay />
       <Routes>
         <Route path='/' element={<Assembly />} />
-        <Route path='/doi' element={<Componenta />} />
+        {/* <Route path='/doi' element={<Componenta />} /> */}
       </Routes>
     </Router>
   );
